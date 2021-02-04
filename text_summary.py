@@ -13,7 +13,7 @@ def text_summary(text):
     :return: summarized version of original text
     '''
     # preprocessing
-    clean_text = text.strp().replace("\n","")
+    clean_text = text.strip().replace("\n","")
     t5_text = "summarize: " + clean_text # define task
 
     #tokenizer
