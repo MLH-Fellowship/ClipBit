@@ -4,17 +4,21 @@ import click
 import os
 import sys
 import logging
+import colorama
+from tabulate import tabulate
 
 from script import Captions
+from text_summary import summary as ts
 
 logger = logging.getLogger(__name__)
+colorama.init()
 
 
 @click.command()
 @click.option(
     "-s",
     "--summarize",
-    prompt="Enter the YouTube link:",
+    prompt="\033[93m\u2192 Enter the YouTube link:\033[0m",
     help="Generates summary from the YouTube link.",
 )
 @click.option(
@@ -23,13 +27,34 @@ logger = logging.getLogger(__name__)
     default=False,
     help="Verbose mode: shows progress bar and other information.",
 )
-def generate_summary(summarize, verbose):
-    captions_obj = Captions(summarize)
+@click.option(
+    "-d/-c",
+    "--detailed/--clean",
+    default=False,
+    help="Detailed mode: displays title, captions and summary in a table.",
+)
+def generate_summary(summarize, verbose, detailed):
+    verboseprint = print if verbose else lambda *a, **k: None
 
-    # TO-DO
-    # captions_obj.video_path + "/script.txt" is the path to the combined script.
-    # import your file and then
-    # call your NLP model function here.
+    captions = Captions(summarize, verbose)
+    if captions.srt_filename:
+        final_summary = ts(captions.video_path, verbose)
+        if final_summary:
+            if detailed:
+                tabulate_summary(final_summary, captions)
+            else:
+                print(f"\n{final_summary}\n")
+            verboseprint(
+                "\033[96m\u2192 Captions, Script and Summary are all available under videos/<video_name>/ directory.\033[0m"
+            )
+
+
+def tabulate_summary(summary, captions):
+    pass
+    # table = []
+    # headers = ["VIDEO", "CAPTIONS", "SUMMARY"]
+    # table.append([captions.video_path, captions.video_path + "/script.txt", captions.video_path + "/summary.txt"])
+    # print(tabulate(table, headers, tablefmt="pretty"))
 
 
 # Returns the size of the terminal
@@ -61,13 +86,13 @@ def on_progress(stream, chunk, bytes_remaining):
 
 def welcome_message():
     os.system("clear")
-    print(" ██████╗██╗     ██╗██████╗ ██████╗ ██╗████████╗")
-    print("██╔════╝██║     ██║██╔══██╗██╔══██╗██║╚══██╔══╝")
-    print("██║     ██║     ██║██████╔╝██████╔╝██║   ██║   ")
-    print("██║     ██║     ██║██╔═══╝ ██╔══██╗██║   ██║   ")
-    print("╚██████╗███████╗██║██║     ██████╔╝██║   ██║   ")
-    print(" ╚═════╝╚══════╝╚═╝╚═╝     ╚═════╝ ╚═╝   ╚═╝   \n")
-    print("Generate concise meaningful summaries of videos.\n")
+    print("\033[95m ██████╗██╗     ██╗██████╗ ██████╗ ██╗████████╗\033[0m")
+    print("\033[95m██╔════╝██║     ██║██╔══██╗██╔══██╗██║╚══██╔══╝\033[0m")
+    print("\033[95m██║     ██║     ██║██████╔╝██████╔╝██║   ██║   \033[0m")
+    print("\033[95m██║     ██║     ██║██╔═══╝ ██╔══██╗██║   ██║   \033[0m")
+    print("\033[95m╚██████╗███████╗██║██║     ██████╔╝██║   ██║   \033[0m")
+    print("\033[95m ╚═════╝╚══════╝╚═╝╚═╝     ╚═════╝ ╚═╝   ╚═╝   \033[0m")
+    print("\033[94mGenerate concise meaningful summaries of videos.\033[0m\n")
 
 
 if __name__ == "__main__":
