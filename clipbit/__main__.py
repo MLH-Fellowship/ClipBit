@@ -8,8 +8,8 @@ import colorama
 from rich.console import Console
 from rich.table import Table
 
-from script import Captions
-from text_summary import summary as ts
+from clipbit.script import Captions
+from clipbit.text_summary import summary as ts
 
 logger = logging.getLogger(__name__)
 colorama.init()
@@ -111,7 +111,7 @@ def on_progress(stream, chunk, bytes_remaining):
     display_progress_bar(bytes_received, filesize)
 
 
-def welcome_message():
+def main():
     os.system("clear")
     print("\033[96m ██████╗██╗     ██╗██████╗ ██████╗ ██╗████████╗\033[0m")
     print("\033[96m██╔════╝██║     ██║██╔══██╗██╔══██╗██║╚══██╔══╝\033[0m")
@@ -120,8 +120,8 @@ def welcome_message():
     print("\033[96m╚██████╗███████╗██║██║     ██████╔╝██║   ██║   \033[0m")
     print("\033[96m ╚═════╝╚══════╝╚═╝╚═╝     ╚═════╝ ╚═╝   ╚═╝   \033[0m")
     print("\033[94mGenerate concise meaningful summaries of videos.\033[0m\n")
+    generate_summary()
 
 
 if __name__ == "__main__":
-    welcome_message()
-    generate_summary()
+    main()
