@@ -2,10 +2,12 @@ import torch
 import logging
 import colorama
 import time
+from rich.console import Console
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 logger = logging.getLogger(__name__)
 colorama.init()
+console = Console()
 
 # Returns content of the script file
 def read_file(filepath):
@@ -42,8 +44,7 @@ def summary(dirpath, verbose):
     :return: summarized version of original text
     """
     # Only prints if verbose flag is set to True
-    verboseprint = print if verbose else lambda *a, **k: None
-    verboseprint(u"\033[95m\u21ba Generating Summary\033[0m")
+    verboseprint = console.log if verbose else lambda *a, **k: None
 
     model = T5ForConditionalGeneration.from_pretrained(
         "t5-small"
@@ -56,7 +57,7 @@ def summary(dirpath, verbose):
         text = read_file(dirpath + "/script.txt")
     except:
         logging.info("\033[93m[\u21b3] Ignoring... no captions file\033[0m")
-        return None
+        return (None, None)
 
     # preprocessing
     clean_text = text.strip().replace("\n", "")
@@ -69,16 +70,19 @@ def summary(dirpath, verbose):
         logging.error(
             u"\n\033[91m\u2717 Max token length exceeded: too many words!\033[0m"
         )
-        return None
+        return (None, None)
 
     # summmarize
-    summary_ids = run_model(model, tokenized_text)
-    summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
-    create_summary_file(dirpath + "/summary.txt", summary)
-    verboseprint(u"\033[92m\u2713 Dumped summary to file\033[0m")
-    time.sleep(1)
+    with console.status(
+        "[bold magenta]Generating summary...", spinner="bouncingBar"
+    ) as status:
+        summary_ids = run_model(model, tokenized_text)
+        summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+        create_summary_file(dirpath + "/summary.txt", summary)
+        verboseprint("[bold green]Dumped summary to file\n")
+        time.sleep(1)
 
-    return summary
+    return (text, summary)
 
 
 if __name__ == "__main__":
