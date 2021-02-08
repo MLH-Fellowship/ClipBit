@@ -17,7 +17,7 @@ class Captions:
         self.verboseprint = console.log if verbose else lambda *a, **k: None
 
         self.yt = YouTube(URL)
-        self.video_path = os.getcwd() + "/videos/{}".format(
+        self.video_path = os.getcwd() + "/clipbit/videos/{}".format(
             self.yt.title.lower().replace(" ", "_")
         )
         Path(self.video_path).mkdir(parents=True, exist_ok=True)
