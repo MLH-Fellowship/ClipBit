@@ -8,7 +8,9 @@
 video of your choice and the program will give a text summary.
 
 ## Installation
-To install ClipBit on your system, run `pip install clipbit`
+```
+pip install clipbit
+```
 
 ## Basic Usage
 To know more about the program and the flags available, run the help command by running `clipbit --help`.
@@ -19,9 +21,10 @@ To summarize a youtube video, grab the link and feed to the CLI program as demon
 
 ## Future add-ons
 
-The following are features the team plans to incorporate in version **1.0.1**
-1. Generate summaries for videos with no captions
+1. Generate summaries for videos with no captions.
 2. Generate summaries for longer videos exceeding 1 hour.
+3. Workaround NLP model limit of 512 Tokens.
+4. GUI or web-app
 
 ## Authors
 
