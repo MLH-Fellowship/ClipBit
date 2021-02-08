@@ -31,6 +31,6 @@ Meet the ClipBit team
 3. [Kimaru Thagana](https://github.com/KimaruThagna)
 
 ## License 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-ClipBit is free and open sourc under the MIT License.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <br>
+ClipBit is free and open source under the MIT License.
 
