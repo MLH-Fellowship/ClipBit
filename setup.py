@@ -18,7 +18,7 @@ dependency_links = [x.strip().replace('git+', '') for x in all_reqs if 'git+' no
 
 setup(
     name="clipbit",
-    description="Generate concise meaningful summaries YouTube videos",
+    description="Generate concise meaningful summaries of YouTube videos",
     version="1.0.0",
     packages=find_packages(),
     install_requires = install_requires,
