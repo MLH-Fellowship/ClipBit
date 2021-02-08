@@ -1,0 +1,11 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.7.1+cpu
+torchvision==0.8.2+cpu
+torchaudio==0.7.2
+pytube==10.4.1
+pysrt==1.1.2
+click==7.1.2
+transformers==4.2.2
+sentencepiece==0.1.95
+colorama==0.4.4
+rich==9.10.0
