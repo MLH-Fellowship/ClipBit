@@ -1,14 +1,13 @@
 ![Clipbit Logo](media/clipbit_logo.png)
 
-![License](https://img.shields.io/github/license/MLH-Fellowship/ClipBit?style=for-the-badge)
 ![PyPi Version](https://img.shields.io/pypi/v/clipbit?style=for-the-badge)
 ![Python Versions](https://img.shields.io/pypi/pyversions/clipbit?style=for-the-badge)
 ![PyPi Format](https://img.shields.io/pypi/format/clipbit?style=for-the-badge)
 ![Top Language](https://img.shields.io/github/languages/top/MLH-Fellowship/ClipBit?style=for-the-badge)
 ![Code Size](https://img.shields.io/github/languages/code-size/MLH-Fellowship/ClipBit?style=for-the-badge)
-![Issues](https://img.shields.io/github/issues/MLH-Fellowship/ClipBit?style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/MLH-Fellowship/ClipBit?style=for-the-badge)
 ![Forks](https://img.shields.io/github/forks/MLH-Fellowship/ClipBit?style=for-the-badge)
+![Issues](https://img.shields.io/github/issues/MLH-Fellowship/ClipBit?style=for-the-badge)
 ![Activity](https://img.shields.io/github/commit-activity/w/MLH-Fellowship/ClipBit?style=for-the-badge)
 
 ## Introduction
@@ -43,6 +42,6 @@ Meet the ClipBit team
 3. [Kimaru Thagana](https://github.com/KimaruThagna)
 
 ## License 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <br>
+![License](https://img.shields.io/github/license/MLH-Fellowship/ClipBit?style=for-the-badge) <br>
 ClipBit is free and open source under the MIT License.
 
