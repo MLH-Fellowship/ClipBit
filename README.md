@@ -1,5 +1,6 @@
 ![Clipbit Logo](media/clipbit_logo.png)
 
+![License](https://img.shields.io/pypi/l/clipbit?style=for-the-badge)
 ![PyPi Version](https://img.shields.io/pypi/v/clipbit?style=for-the-badge)
 ![Python Versions](https://img.shields.io/pypi/pyversions/clipbit?style=for-the-badge)
 ![PyPi Format](https://img.shields.io/pypi/format/clipbit?style=for-the-badge)
@@ -42,6 +43,6 @@ Meet the ClipBit team
 3. [Kimaru Thagana](https://github.com/KimaruThagna)
 
 ## License 
-![License](https://img.shields.io/github/license/MLH-Fellowship/ClipBit?style=for-the-badge) <br>
+![License](https://img.shields.io/pypi/l/clipbit?style=for-the-badge) <br>
 ClipBit is free and open source under the MIT License.
 
