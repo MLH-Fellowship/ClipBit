@@ -16,7 +16,7 @@
 [ClipBit](https://pypi.org/project/clipbit/1.0.0/) is a CLI tool developed to generate an abstractive text summary of youtube videos. All you need to provide is a link to a Youtube
 video of your choice and the program will give a text summary. <br>
 ![Dundies](media/dundies.png)
-We are also the proud recipients of "What's this in my local time" Management Award.
+This project was one of the submissions in the MLH Fellowship Orientation Hackathon and are proud to be the recipients of "What's this in my local time" Management Award, awarded to us by the wonderful team behind [EnvProtecc](https://github.com/angelinag/envprotecc).
 
 ## Installation
 ```
